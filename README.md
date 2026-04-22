@@ -211,5 +211,5 @@ SmartCampusAPI/
     ├── pom.xml
     └── nb-configuration.xml
 ```
-Developed for 5COSC022W Client-Server Architectures Coursework 2025/26
+5COSC022W Client-Server Architectures Coursework 2025/26
 University of Westminster
