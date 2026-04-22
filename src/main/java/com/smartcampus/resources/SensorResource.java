@@ -73,9 +73,7 @@ public class SensorResource {
 
         Room room = DataStore.getRooms().get(sensor.getRoomId());
         if (room == null) {
-            return Response.status(422)
-                    .entity("{\"error\":\"Room with ID '\" + sensor.getRoomId() + \"' does not exist\"}")
-                    .build();
+            throw new com.smartcampus.exception.LinkedResourceNotFoundException(sensor.getRoomId());
         }
 
         // Add sensor to the room's sensorIds list

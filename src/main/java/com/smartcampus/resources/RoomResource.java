@@ -77,18 +77,15 @@ public class RoomResource {
         Map<String, Room> rooms = DataStore.getRooms();
         Room room = rooms.get(roomId);
 
-        // Check if room exists
         if (room == null) {
             return Response.status(Response.Status.NOT_FOUND)
                     .entity("{\"error\":\"Room not found\"}")
                     .build();
         }
 
-        // Business logic - cannot delete room with sensors
+        // Throw custom exception if room has sensors
         if (!room.getSensorIds().isEmpty()) {
-            return Response.status(Response.Status.CONFLICT)
-                    .entity("{\"error\":\"Cannot delete room. It still has sensors assigned to it\"}")
-                    .build();
+            throw new com.smartcampus.exception.RoomNotEmptyException(roomId);
         }
 
         rooms.remove(roomId);

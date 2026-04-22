@@ -55,9 +55,7 @@ public class SensorReadingResource {
 
         // Check if sensor is in MAINTENANCE
         if ("MAINTENANCE".equalsIgnoreCase(sensor.getStatus())) {
-            return Response.status(Response.Status.FORBIDDEN)
-                    .entity("{\"error\":\"Sensor is under maintenance and cannot accept readings\"}")
-                    .build();
+            throw new com.smartcampus.exception.SensorUnavailableException(sensorId);
         }
 
         if (reading == null) {
