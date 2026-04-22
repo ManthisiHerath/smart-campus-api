@@ -118,7 +118,7 @@ mismatch?
 -The @Consumes(MediaType.APPLICATION_JSON) annotation indicates that the endpoint is designed to handle only requests with the Content-Type set to application/json. If a client submits data using a different content type, such as text/plain or application/xml, JAX-RS will automatically reject the request and respond with an HTTP 415 Unsupported Media Type status. In such cases, the request does not reach the resource method at all. This mechanism ensures that the API only processes data formats it is capable of handling, providing an extra layer of protection.
 
 ### Part 3.2 
-Question: You implemented this filtering using @QueryParam. Contrast this with an alternative design where the type is part of the URL path (e.g., /api/vl/sensors/type/CO2). Why
+Question: You implemented this filtering using @QueryParam. Contrast this with an alternative design where the type is part of the URL path (e.g., /api/vl/sensors/type/CO2). Why
 is the query parameter approach generally considered superior for filtering and searching
 collections?
 
@@ -127,7 +127,7 @@ collections?
 ### Part 4.1
 Question: Discuss the architectural benefits of the Sub-Resource Locator pattern. How
 does delegating logic to separate classes help manage complexity in large APIs compared
-to defining every nested path (e.g., sensors/{id}/readings/{rid}) in one massive controller class?
+to defining every nested path (e.g., sensors/{id}/readings/{rid}) in one massive controller class?
 
 -The Sub-Resource Locator pattern works by directing request handling to a different class depending on the URL path. Rather than placing all nested endpoints within a single large controller, each sub-resource is managed by its own dedicated class. This approach enhances code structure, readability, and ease of maintenance. In larger APIs with multiple nested resources, it helps prevent resource classes from becoming overly complex. Additionally, it enables sub-resources to be developed and tested independently.
 
@@ -146,7 +146,7 @@ attacker gather from such a trace?
 
 ### Part 5.5
 Question: Why is it advantageous to use JAX-RS filters for cross-cutting concerns like
-logging, rather than manually inserting Logger.info() statements inside every single resource method?
+logging, rather than manually inserting Logger.info() statements inside every single resource method?
 
 -Using JAX-RS filters to handle cross-cutting concerns such as logging is more effective than manually adding Logger.info() statements inside each resource method. Filters are automatically executed for all incoming requests and outgoing responses without interfering with the core business logic. This approach follows the principle of separation of concerns. If logging behavior needs to be updated or turned off, only the filter implementation must be changed. In contrast, manually placing logging code in every method can result in duplicated code, inconsistent logging practices, and increased maintenance effort.
 
