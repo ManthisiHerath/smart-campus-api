@@ -1,2 +1,8 @@
+com\smartcampus\store\DataStore.class
+com\smartcampus\model\Sensor.class
 com\smartcampus\resources\JavaEE8Resource.class
+com\smartcampus\SmartCampusApplication.class
+com\smartcampus\model\Room.class
+com\smartcampus\resources\DiscoveryResource.class
 com\smartcampus\JAXRSConfiguration.class
+com\smartcampus\model\SensorReading.class
