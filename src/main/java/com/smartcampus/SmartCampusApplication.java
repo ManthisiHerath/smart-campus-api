@@ -10,10 +10,15 @@ package com.smartcampus;
  */
 
 import javax.ws.rs.ApplicationPath;
-import javax.ws.rs.core.Application;
+import org.glassfish.jersey.jackson.JacksonFeature;
+import org.glassfish.jersey.server.ResourceConfig;
 
 @ApplicationPath("/api/v1")
-public class SmartCampusApplication {
-    // This class bootstraps the entire JAX-RS application
-    // @ApplicationPath sets the base URL for all API endpoints
+public class SmartCampusApplication extends ResourceConfig {
+
+    public SmartCampusApplication() {
+        packages("com.smartcampus");
+        register(JacksonFeature.class);
+    }
 }
+
