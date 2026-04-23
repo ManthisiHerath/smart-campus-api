@@ -53,6 +53,7 @@ public class SensorReadingResource {
                     .build();
         }
 
+        
         // Check if sensor is in MAINTENANCE
         if ("MAINTENANCE".equalsIgnoreCase(sensor.getStatus())) {
             throw new com.smartcampus.exception.SensorUnavailableException(sensorId);
